@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Pepper </title>
+		<meta name="viewport" content="initial-scale = 1.333, minimum-scale = 1.333, maximum-scale = 1.333" />
+		<script src="libs/jquery.js"></script>
+		<script src="/libs/qi/2/qi.js"></script>
+		<script>
+			var session;
+			try {
+				QiSession(function(s) {
+					console.log("Connected!")
+					session = s;
+				});
+			} catch (err) {
+				console.log(err);
+				console.log("Error connecting to NAOqi");
+			}
+		</script>
+		<script>
+			$(document).ready(function() {
+				$("#background").fadeIn(500);
+				$("#header").delay(700).fadeIn(500);
+				$("#back").delay(700).fadeIn(500);
+				$("#tweets").delay(700).fadeIn(500);
+				$("#dabimage").delay(1400).fadeIn(500);
+				$("#attributes").delay(1400).fadeIn(1000);
+				$("#feedback").delay(3400).fadeIn(1500);
+			});
+		</script>
+		<style type="text/css">
+			@font-face {
+    			font-family: 'ubunturegular';
+			    src: url('css/ubuntu-regular-webfont.woff2') format('woff2'),
+		        url('css/ubuntu-regular-webfont.woff') format('woff');
+			    font-weight: normal;
+    			font-style: normal;
+			}
+			#header {
+				text-align: center;
+				width: 100%;
+				height: 100px;
+				font-family: "ubunturegular";
+				font-size: 75px;
+				display: none;
+				position: fixed;
+				top: 10px;
+				left: 0;
+				right: 0;
+				color: white;
+			}
+			
+			#back {
+				position: fixed;
+				top: 12px;
+				left: 75px;
+				width: 80px;
+				height: 80px;
+				font-size: 60px;
+				font-family: "ubunturegular";
+				display: none;
+				background-image: url(images/back.png);
+			}
+			
+			#dabimage {
+				display: none;
+				position: fixed;
+				bottom: 40px;
+				left: 0;
+			}
+			
+			#attributes {
+				font-family: "ubunturegular";
+				font-size: 75px;
+				position: fixed;
+				top: 100px;
+				right: 0;
+				text-align: right;
+				padding-right: 50px;
+				display: none;
+				color: white;
+			}
+			
+			#background {
+				min-height: 100%;
+				display: none;
+				z-index: -100;
+			}
+	
+			body, html {
+				height: 100%;
+				margin: 0;
+			}
+			
+			#feedback {
+				display: none;
+				position: fixed;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				text-align: center;
+				font-family: "ubunturegular";
+				color: white;
+				font-size: 40px;
+			}
+			
+			#tweets {
+				position: fixed;
+				top: 0;
+				right: 30px;
+				width: 120px;
+				height: 120px;
+				display: none;
+		</style>
+	</head>
+	<body>
+		<div id="background" style="background-image: url(images/background.jpg)"></div>
+		<div id="header">
+			Here's what I can do:
+		</div>
+		<img id="tweets" src="images/twitter.svg" onclick="sayTwitter()"/>
+		<div id="back" onclick="sayBack()"></div>
+		<div id="feedback">Something not working or want to give feedback? Just ask me.</div>
+		<img id="dabimage" src="images/pepperdab.png">
+		<p id="attributes">
+			I can dab<br>
+			I can sing<br>
+			I can learn faces<br>
+			I can do multiplication<br>
+			And much more!
+		</p>
+	</body>
+	<script>
+		$("#back").click(function() {
+			$("body").fadeOut(500);
+			setTimeout(goback, 500);
+		});
+		
+		function back() {
+			$("body").fadeOut(1500);
+			setTimeout(goback, 1500);
+		}
+		
+		function goback() {
+			window.location = "index.html"
+		}
+		
+		setTimeout(back, 120000);
+		
+		function navtotweets() {
+			window.location = "twitter.html";
+		}
+		
+		function gototweets() {
+			$("body").fadeOut(500);
+			setTimeout(navtotweets, 500);
+		}
+		
+		$("#tweets").click(function() {
+			$("body").fadeOut(500);
+			setTimeout(gototweets, 500);
+		});
+	</script>
+	<script>
+		function sayBack() {
+		  session.service('ALTextToSpeech').then(function (tts) {
+			tts.say('Lets go back then');
+		  }, function (error) {
+			console.log(error);
+		  })
+		}
+		
+		function sayTwitter() {
+		  session.service('ALTextToSpeech').then(function (tts) {
+			tts.say('Check out these awesome tweets from L D E U T C');
+		  }, function (error) {
+			console.log(error);
+		  })
+		}
+	</script>
+</html>

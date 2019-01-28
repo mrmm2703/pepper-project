@@ -1,0 +1,7 @@
+topic: ~Song()
+language: enu
+
+u:([Yes Yep Yeah Sure Cool "Yes please"]) ^rand["Your wish is my command, after all, I am a robot!" "I would be delightful to!" "It would be my pleasure" "Hell yeah! Of course!"] $continue=1
+u:([No Nope Na "It's Ok"]) ^rand["Ok. I understand, but please consider it" "Alright then, but I would love to continue" "Sure. I'll take a break, which isn't what I want" "Ok. I was looking forward to continuing." "Please say yes"]
+    u1:(["Alright then" "Go on" Yes Sure "Why not" "Ok" "You can sing" Continue "You can continue"]) ^rand[Yay! Hurray! "Thank you" "I will not disappoint" "Let the show continue!" Alright "Ok then"] $continue=1
+    u1:(_*) ^rand["Okay, I'll stop" "Alright then" "Don't be afraid to ask me again!" "Sure, I'll listen to you"] $doNotContinue=1

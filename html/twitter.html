@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Pepper </title>
+		<meta name="viewport" content="initial-scale = 1.333, minimum-scale = 1.333, maximum-scale = 1.333" />
+		<script src="libs/jquery.js"></script>
+		<script src="/libs/qi/2/qi.js"></script>
+			<script>
+				$(document).ready(function() {
+					$("body").delay(500).animate({opacity: 1}, 500);
+				});
+			</script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				opacity: 0;
+			}
+			
+			#back {
+				position: fixed;
+				top: 0;
+				right: 75px;
+				width: 60px;
+				height: 60px;
+				font-size: 60px;
+				font-family: "ubunturegular";
+				background-image: url(images/back_black.png);
+				z-index: 99999999;
+			}
+		</style>
+	</head>
+	<body>
+		<a class="twitter-timeline" data-lang="en" data-width="960" data-height="600" data-link-color="#2B7BB9" href="https://twitter.com/LDEUTC?ref_src=twsrc%5Etfw">Tweets by LDEUTC</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<div id="back"></div>
+	</body>
+	<script>
+		$("#back").click(function() {
+			$("body").fadeOut(500);
+			setTimeout(goback, 500);
+		});
+		
+		function back() {
+			$("body").fadeOut(1500);
+			setTimeout(goback, 1500);
+		}
+		
+		function goback() {
+			window.location = "abilities.html";
+		}
+		
+		setTimeout(navtoindex, 120000);
+		
+		function navtoindex() {
+			window.location = "index.html";
+		}
+		
+		function sayBack() {
+		  session.service('ALTextToSpeech').then(function (tts) {
+			tts.say('Here are the things I can do.');
+		  }, function (error) {
+			console.log(error);
+		  })
+		}
+	</script>
+</html>

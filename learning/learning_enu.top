@@ -1,0 +1,10 @@
+topic: ~learning()
+language: enu
+
+u:(_*) I got, $1 is that correct? $temp=$1
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously Please "Yes please" "Yeah please" "Go on"]) Ok, I'm going to learn your face now. Please hold still. $name=$temp
+    u1:([No Nope Na Nah Never "Obviously not" "Obviously no" "Who does" "It's alright" "No please" Don't]) Ok, say your name again.
+
+u:([Stop "Stop learning" "Don't learn my face" "I'm confused" What "Do not learn my face" "Stop learning my face" "Stop don't learn my face" "I don't want you to learn my face"]) Are you sure you want me stop the face learning procedure?
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously Please "Yes please" "Yeah please" "Go on"]) Ok then. $onStopped=1
+    u1:([No Nope Na Nah Never "Obviously not" "Obviously no" "Who does" "It's alright" "No please" Don't]) Ok then. Tell me your name.

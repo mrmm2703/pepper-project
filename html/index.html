@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale = 1.333, minimum-scale = 1.333, maximum-scale = 1.333" />
+		<title> Pepper </title>
+		<script src="libs/jquery.js"></script>
+		<script src="/libs/qi/2/qi.js"></script>
+		<script>
+			var session;
+			try {
+				QiSession(function(s) {
+					console.log("Connected!")
+					session = s;
+				});
+			} catch (err) {
+				console.log(err);
+				console.log("Error connecting to NAOqi");
+			}
+		</script>
+		<style type="text/css">
+			#introclick {
+				min-height: 100%;
+				display: none;
+			}
+			
+			body, html {
+				height: 100%;
+				margin:0;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				$("#introclick").fadeIn(500);
+			});
+		</script>
+	</head>
+	<body style="margin: 0; padding: 0;">
+		<div id="introclick" style="background-image: url(images/PepperIntro.png)" onclick="sayTouchFeedback()"></div>
+	</body>
+	<script>
+		$("#introclick").click(function() {
+			$("body").fadeOut(500);
+			window.setTimeout(nav, 500);
+		});
+		
+		function nav() {
+			window.location = "abilities.html"
+		}
+	</script>
+	<script>
+		function sayTouchFeedback() {
+		  session.service('ALTextToSpeech').then(function (tts) {
+			tts.say('Ooh! You tapped my tablet! These are the things I can do, and much more! Be sure to check out the L D E U T C twitter page!');
+		  }, function (error) {
+			console.log(error);
+		  })
+		}
+	</script>
+</html>

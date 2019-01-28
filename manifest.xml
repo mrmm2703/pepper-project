@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="subjects-morahman" version="0.0.0">
+ <names>
+  <name lang="en_US">Subjects By Mo</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">This is my first application created using Choregraphe. It started with a dialog box and a few animations to become the monstrosity that it is now. Made by Muhammad Rahman.</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent topicName="TopicOne" typeVersion="1.0">
+   <topic path="TopicOne/TopicOne_enu.top" language="en_US"/>
+  </dialogContent>
+  <dialogContent topicName="ExampleDialog" typeVersion="1.0">
+   <topic path="behavior_1/ExampleDialog/ExampleDialog_enu.top" language="en_US"/>
+  </dialogContent>
+  <dialogContent topicName="Song" typeVersion="1.0">
+   <topic path="Song/Song_enu.top" language="en_US"/>
+  </dialogContent>
+  <dialogContent topicName="learning" typeVersion="1.0">
+   <topic path="learning/learning_enu.top" language="en_US"/>
+  </dialogContent>
+ </contents>
+</package>

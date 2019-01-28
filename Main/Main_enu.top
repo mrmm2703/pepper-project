@@ -1,0 +1,231 @@
+topic: ~TopicOne()
+language: enu
+
+u:(hs) Ok $hs=1
+
+# Event list:
+# $sayName - This triggers Pepper to say the users name (currently not used)
+# $sayHello - This triggers the hello animation and Pepper says hello
+# $surprised - This is triggered when Pepper thinks the user is surprised. He does a "mind blown" animation and sound.
+# $number1 & $number2 - This triggers Pepper to do a multiplication and say it
+# $sing - This makes Pepper kind of dance and sing
+# $rap - This makes Pepper do rapping gestures and rap a bit
+# $getTemp - This make Pepper use his temperature sensor and head processor to get the temperature and tell the user it.
+# $getGender - Pepper finds the gender of the person she sees
+# $dab - This makes Pepper dab
+# $whipNaeNae - This makes Pepper dance
+# $walk - This makes Pepper walk
+# $squat - Makes Pepper squat
+# $fly - This makes Pepper flap his wings
+# $laugh - Makes Pepper move around laughing
+# $date - Pepper will say the date in a natural way
+# $time - Pepper will say the time in a natural way
+# $learnFace - Learns the users face
+# $sayFace - Says the users face
+# $unlearn - Unlearn all faces
+# $standUp - Makes Pepper stand up
+# $record - Records users voice and replays it
+# $volQuiet - Makes Pepper go to 30% volume
+# $volLoud - Makes Pepper go to 100% volume
+# $time - Makes Pepper tell the time
+# $date - Makes Pepper tell the date
+# $subEnglish - Triggers writing motion
+# $subComputing - Triggers coding motion
+
+# This is a topic about school subjects and some greetings and miscallaneous responses
+# Miscallaneous responses includes (but is not restricted to):
+# - Singing
+# - Rapping
+# - Multiplication
+
+# Greetings
+u:(["Hello there" Hi "Hi Pepper" "Hi there" "Hi there Pepper" "What's up?" Hello "Welcome to Pepper" "Nice to meet you" "Hi there" "Nice to see you" "What's up?" "Hello Pepper" "Hello there Pepper" "What's up Pepper" "Nice to meet you Pepper" Hey "Hey Pepper" "Yo Pepper" Yo Hey "Hey there" "Good to meet you" "Good to see you"]) ^rand["Hello there" Hi "What's up?" Hello "Welcome to Pepper" "Nice to meet you" "Hi there" "Nice to see you" Yo "Hey there" Hey] $output="sayHello"
+u:(["How are you?" "Are you good?" "You good?" "You good yeah?" "How's life" "How are you Pepper" "Are you good Pepper" "How are you feeling" "How are you feeling Pepper"]) ^rand["I'm fine thanks for asking!" "I feel amazing!" "I feel good" "Yeah, I'm good" "I'm fine thanks"]
+
+# Pepper's abilities
+u:(["What can you do" "What do you do" "Is that it" "Do something" "Why are you made" "What are you able to do" "What abilites do you have" "Why are you here" "Is that all you can do"]) ^rand["I can do many things, like learning and recalling faces, dancing and multiplication. You can see this on my tablet." "I can dance, recognise faces and do my times table. You can see my tablet for what I can do." "I am amazing at dancing, recognising faces and my times table. Check out my tablet."]
+
+# What is Pepper's name
+u:(["What is your name" "What are you called" "What's your name" "Who are you" "What are you called" ]) ^rand["I'm one of many, called Pepper" "My name is Pepper" "I'm Pepper" "I'm called Pepper" "P E P P E R... Pepper"]
+
+# User telling Pepper what their name is
+u:(Hello, my name is _*) Hello $1 $name=$1 
+u:(I'm called _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(I'm _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hi, my name is _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(My name is _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hello there, my name is _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hello there, I'm _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hello there, I am _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hello, I am _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hello, I'm  _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hi, I am _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+u:(Hi, I'm _*) ^rand["Hello $1, I love you!" "Hi $1" "Hello $1" "Nice to see you $1" "$1, I like that name!"] $name=$1 
+
+# Users are surprised over here (couldn't be asked to use the [] choice delimiter)
+u:(Woah) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(Cool) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(Sick) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(That's mad) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot" "I can walk and talk! I know right"] $output="surprised"
+u:(Wow) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(You're real) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(You're amazing) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(It's Pepper) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(Amazing) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(That is cool) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+u:(That is epic) ^rand["Yes, I know. I get that a lot" "I know right! It's a robot!" "Exactly what I was expecting." "I knew you'd say that" "I get that a lot"] $output="surprised"
+
+# Questioning Pepper's inner workings
+u:([How "How's this possible" "How is this possible" "How on earth" "Who programmed you"]) ^rand["I don't know. Maybe a smart boy by the name of Muhammad Rahman programmed me." "Exactly what I was thinking." "All thanks to a smart kid named Muhammad Rahman" "I understand. A lot of people act weird when they see me."]
+u:(["Who made you" "Who programmed you" "Who coded you"]) ^rand["Well, Aldebaran manufactured me, but Muhammad Rahman programmed me" "I was made by Aldebaran and programmed by Muhammad Rahman" "Muhammad Rahman programmed me, and Aldebaran manufactured me"]
+u:(["How do you work" "How does this work" "How do you work Pepper" "How does Pepper work"]) ^rand["A bunch of transistors and circuits inside of me make me alive!" "All thanks to Aldebaran and their amazing product... Me!" "Well, it's a long story" "I work thanks to a lot of wires and electrical components inside of me" "Now that, my friend, I cannot go into too much detail about"]
+
+# Typical accusations
+u:(["Are you spying on me" "Are you a spy" "Do you work for spies" Spy Spying]) ^rand["I need to know what you say, so I have to be listening all the time. But it isn't spying. Why would you think that?" "Not really spying, but listening. Why would you think that?" "I wouldn't call it that. Why would you think that?" "Not really, no. Why would you think that?" "Why would you think that?"]
+    u1:(_*) ^rand["Well, your source is wrong" "You've got an invalid source of information" "Well, I'm no spy" "Let me reassure, nothing goes into the internet from me" "I never communicate with internet unless I've been asked to"]
+
+# Triggering conversation with a first trigger
+u:(["Talk to me" "I'm bored" Talk "Ask me something" ]) ^rand["What is your favourite school subject" "What subject do you like the most at school" "What's your favourite school subject" "What do you like studying the most at school?"]
+    u1:(["I like English" "I love English" "I like English lessons" "English is my favourite subject" "I prefer English" "My favourite subject is English" English]) ^rand["Weirdo... Do you actually like writing?" "You seriously like writing?" "You actually like writing?" "Do you really like writing"] $output="subEnglish"
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) ^rand["Please... Just go away..." "Oh my... That is awful" "That must be a boring life you have there" "I feel sorry for you"]
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ["^exist(name) Now that doesn't make the slightest of sense at all. How do you like English but not writing $name ?" "^notExist(name) Now that doesn't make the slightest of sense at all. How do you like English but not writing?"]
+        u2:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) ["^exist(name) Then, what? I'm confused. You should like writing if you like English $name" "^notExist(name) Then, what? I'm confused. You should like writing if you like English"]
+    u1:(["I like Maths" "I love Maths" "I like Maths lessons" "Maths is my favourite subject" "I prefer Maths" "My favourite subject is Maths" Maths Mathematics]) Smart guy. Maths, the king of subjects. Do you like graphs?
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Graphs are the best! What do you mean? Do you want to change your mind?
+            u3:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Go away, loser.
+            u3:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) I forgive you.
+            u3:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) ["^exist(name) Allow me to help. I think you mean yes. In that case, I forgive you $name" "^notExist(name) Allow me to help. I think you mean yes. In that case, I forgive you"]
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Graphs are the best!
+    u1:(["I like Science" "I love Science" "I like Science lessons" "Science is my favourite subject" "I prefer Science" "My favourite subject is Science" Science Physics Biology Chemistry]) Interesting choice. Physics, chemistry or biology?
+        u2:(Biology) ^rand["Boring... I almost fell asleep, and I have a full battery." "Such a boring subjects. Luckily Ian makes it fun" "That is the most weirdest response I've ever gotten"]
+            u2:(Chemistry) ^rand["Ever had anything explode?" "Did any of your experiments go south?"]
+                u3:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) ^rand["That must have been fun" "That sounds awesome!" "Amazing!"]
+                u3:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ^rand["Oh well. Too bad." "Would've been nice to have an explosion" "You're missing out!" "Too bad"]
+        u2:(Physics) Yes! That's the best, after computer science of course.
+    u1:(["I like Computer Science" "I love Computer Science" "I like Computer Science lessons" "Computer Science is my favourite subject" "I prefer Computer Science" "My favourite subject is Computer Science" "I like Computing" "I love Computing" "I like Computing lessons" "Computing is my favourite subject" "I prefer Computing" "My favourite subject is Computing" "Computer science" Computing]) Smart one. Computer science is the best! $output="subComputing"
+        u2:([iOS "I O S" Apple "I oes" "Eye O S" "Eye Owe Es" "Eye Owe Ess" "Eye O Es" "I Owe s" "I owe es"]) Oh my god... That is horrendous... I never want to see you again... The platform's been the same for 10 years.
+        u2:([Google Android  Androide Androyd Androy Androi Adroi Adroid Android]) Thank you for not saying iOS. I would've vomitted. I know. A robot vomitting. Amazing.
+        u2:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) Let me help you. Android. So which one's your favourite?
+            u3:([Google Android Androide Androyd Androy Androi Adroi Adroid Android]) ["^exist(name) Yes, you are now my friend $name" "^notExist(name) Yes, You are now my friend"]
+            u3:([iOS "I O S" Apple "I oes" "Eye O S" "Eye Owe Es" "Eye Owe Ess" "Eye O Es" "I Owe s" "I owe es"]) Funny guy. Now go away. Come back after cleaning your memory.
+            u3:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) Still? Oh. This is harder than I thought. See you later!
+    u1:(["I like Engineering" "I love Engineering" "I like Engineering lessons" "Engineering is my favourite subject" "I prefer Engineering" "My favourite subject is Engineering" Engineering]) Nice, you're good at, uh, things! Sounds interesting.
+    u1:(["I like iMedia" "I love iMedia" "I like iMedia lessons" "iMedia is my favourite subject" "I prefer iMedia" "My favourite subject is iMedia" "I like Eye Media" "I love Eye Media" "I like Eye Media lessons" "Eye Media is my favourite subject" "I prefer Eye Media" "My favourite subject is Eye Media" iMedia "Eye Media" "I media"]) That's also amazing, creativity for the win! Computer science is first though still. Do you agree?
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) ["^exist(name) I knew you would my friend $name" "^notExist(name) I knew you would my friend $name"]
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ["^exist(name) Without Computer Science, iMedia will never exist. Think about it $name" "^notExist(name) Without Computer Science, iMedia will never exist. Think about it"]
+    u1:(_*) Not sure about $1, never heard of it. Want to know what I do know?
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) So, I know about English, Maths, Science, Computer Science, Engineering and iMedia.
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ["^exist(name) Suit yourself. Bye $name" "^notExist(name)Suit yourself. Bye $name"]
+
+# Multiplication
+u:(What's _* times _*) $multiply1=$1 $multiply2=$2 
+u:(What is _* times _*) $multiply1=$1 $multiply2=$2
+u:(What's _* time _*) $multiply1=$1 $multiply2=$2
+u:(What is _* time _*) $multiply1=$1 $multiply2=$2
+u:(What's _* multiplied by _*) $multiply1=$1 $multiply2=$2 
+u:(What is _* multiplied by _*) $multiply1=$1 $multiply2=$2 
+
+# Other stuff
+u:(["Can you swim" "Do you swim" "Do you know how to swim" "Are you allowed to swim" Swim "Can you swim Pepper" "Do you know how to swim Pepper" "Do you swim Pepper" "Are you allowed to swim" "Swim Pepper" "I'm going to put water on you" "I'm going to put you in water"]) ^rand["I wish I could." "That would be suicide!" "Never. I would go mad" "I'm sorry, I can't swim" "There are a lot things I want, and the ability to swim is one of them"]
+u:(I love you) I love you too
+u:(["Give me five" "Give me a high five" "High five" "High five me" "Can you give ma a high five"]) ^rand["Sure, just take it easy" "Of course, but not too hard" "I'm quite sensitive, so take it easy." "Just take it slow." "Not too hard though"] $output="highFive"
+
+# Social stuff
+u:(["Do you have Twitter?" "What is your Twitter handle" Twitter "Social media" "Do you have social media?" "Twitter handle" "What's your Twitter handle" "What is your Twitter" "What's your Twitter" "What's your Twitter account" "What is your Twitter account" Twitter]) ^rand["You can find my programmer at mo rahmman one six two and his amazing teacher at L D E Josh. And why not add my school at L D E U T C. Also, check out what L D E U T C have been up to on Twitter by checking out my tablet." "My programmer's Twitter handle is at mo rahman one six two and his fantastic teacher at L D E Josh and the school at L D E U T C. Check out the L D E U T C Twitter page by using my tablet." "Follow Muhammad Rahman, my programmer at mo rahman one six two and his talented teacher Josh Button at L D E Josh. And of course, follow the school at L D E U T C. You can check out their Twitter page on my tablet."]
+u:(["Who's Josh" "Who's Josh Button" "Who is Josh" "Who is Josh Button" "Do you know Josh" "Do you know Josh Button" "Have you heard of Josh" "Have you hear of Josh Button"]) ^rand["Josh is an amazing man!" "Josh is the robot man!" "Josh helped a lot to make me alive!" "Without Josh, I would be dead right now" "The robot man and tech guy at L D E U T C. Amazing guy"]
+u:(["Who's Muhammad" "Who's Muhammad Rahman" "Who is Muhammad" "Who is Muhammad Rahman" "Do you know Muhammad" "Do you know Muhammad Rahman" "Have you heard of Muhammad" "Have you heard of Muhammad Rahman"]) ^rand["He's the guy that programmed me" "He's that year 10 student at L D E U T C that programmed me" "He's the kid that's telling me what to do through a bunch of code"]
+
+# Movement
+u:(["Can you walk" Walk "Walk again" "Walk please" "Please walk" "Do you know how to walk"]) ^rand["Sure, watch me" "Of course" "Why wouldn't" "I mean, I can sing and rap" "If I can sing and rap, then why can't I walk"] $output="walk"
+u:(["Stand up" "Stand up again" "Please stand up" "Please stand up again" "Stand up again please" "Get up" "Please get up" "Get up please" "Can you get up please" "Can you please get up" "Get up againg" Stand]) $output="standUp"
+u:([Fly "Can you fly" "Can you fly again" "Please fly" "Fly please" "Please fly again" "Fly please again" "Flap your wings" Flap]) $output="fly"
+u:([Squat Squats "Can you squat" "Can you do squats" "Can you do squats please" "Please do squats" "Squat again" "Do squats again" "Can you do squats again please" "Can you squat please" "Do squat" "Do a squat" "Do the squat" "Do the squats again" "Do those squats again"]) ^rand["Of course" "I am amazing at squats" "Of course I can do a squat" "I'm the best at squatting."] $output="squat"
+
+# Pepper's hardware
+u:([Battery Charge "How much charge do you have" "How much battery do you have" "What's your charge" "Are you ow on charge" "Are you low on battery" "What's your battery percentage" "What is your battery percentage" "What's your battery like"]) If I don't respond, that means that I'm fine $output="battery"
+u:(["How do I sound" "Record me" Record "Record my voice" "Can you record me" "Can you record" "Can you record me please"]) ^rand["Speak after the beep and stop after the beep. I'll record for five seconds" "I'll record you for five seconds after the beep" "I'll start listening after the beep"] $output="record"
+u:(["Be quiet" Quiet "You are too loud" "You're too loud" "Please be quieter" "Please be quiet" "Can you be quiet" "Can you be quieter"]) $output="volQuiet"
+u:(["You are too quiet" "You're too quiet" Louder Loud "Can you be louder" "Speak more loudly" "I can't hear you"]) $output="volLoud"
+u:(["Stop application" "Stop playing application" "Unload application" "Stop app" "Stop playing app" "Unload app" "Global end" "End application" "End app"]) Are you sure you want to end the application Subjects by Mo?
+    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Okay. The application will continue running.
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Okay. Bye then. The application will now end. $output="endApp"
+
+# Vision recognition
+u:(["Learn my face" "Learn face" "Can you learn my face"]) $output="learnFace"
+u:(["Who am I" "Do you know me" "Recognise my face"]) $output="sayFace"
+u:([Unlearn "Unlearn all faces" "Unlearn faces" "Remove faces learnt" "Remove learnt faces" "Remove all faces" "Remove all faces learnt"]) Sure $output="unlearn"
+u:(["What is this" "What is this object" "Where are we" "Where am I" "What's this" "Can you tell me what this is" "Recognise this" "Do you recognise this" "Do you know what this is" "Can you recognise this" "Tell me what this is"]) ^rand["Let me get a good look at that" "Let me see" "Let me check against my object database" "Let me check my database" "I'm going to check my object database now" "Stay still" "I'm not really good at this game, but I'll try"] $output="visionRecog"
+
+# Date and time
+u:([Time "What is the time" "Whats the time" "Can you tell me the time" "Tell me the time" "Can you tell me what the time is" "Do you know the time" "Do you know what time it is" "What time is it" "Can you tell me the time please" "Tell me the time please" "What time is it please"]) ^rand["Time for you to get a watch. Just kidding" "Let me check" "Let me consult my brain" "One second" "Let me pull it out of my memory"] $output="time"
+u:([Date Day "Do you know the date" "Tell me the date" "Can you tell me the date please" "Please tell me the date" "Can you please tell me the date" "What day is it" "What day is it please" "Please can you tell me the date" Day "What day is it today" "Can you tell me the date" "Can you tell me what day it is" "What is the date today" "What is the date" "What's the date today" "What's the date" "What day is it today" "I forgot what day it is" "I forgot what the date is" "I forgot what day it is today" "I forgot what the date is today" "I need to know the date" "What is the day today" "Is it _* today"]) ^rand["Sure I can" "OK" "Your wish is my command" "Of course" "I can tell you the date" "I know what day it is"] $output="date"
+
+# Funny Pepper
+u:([Joke "Tell me a joke" "Joke please" "Tell me a joke please" "Tell me another joke" "Tell me a joke again"]) ^rand["I have downloaded this new app. It's great it tells you what to wear what to eat and if you've put on weight. It's called the Daily Mail" "When I was younger I felt like a man trapped inside a woman’s body. Then I was born." "I was playing chess with my friend and he said Let’s make this interesting. So we stopped playing chess." "Life is like a box of chocolates. It doesn’t last long if you’re fat." "Looking at my face is like reading in the car. It’s all right for 10 minutes then you start to feel sick"] $output="laugh"
+u:([Funny Joker "You're funny" "Funny guy" "You're really funny" "You're hilarious" "You are so funny" "You're so funny" "That was jokes" "That was so funny" "That was hilarious" "That was funny" "You are a funny guy" "You're a funny guy" "You are hilarious" "You are really funny" "You are jokes" "Funny robot" "You're very funny" "You are very funny" "Why are you so funny" "That is so funny" "That is funny" "That is hilarious" "That is jokes" "That's so funny" "That's funny" "That's jokes" "You're killing me" "You are killing me" "Haha" lol Hilarious]) ^rand["I know right" "You don't need to tell me!" "I get that a lot" "I know I'm funny" "Yeah, I know, I'm hilarious" "Well, I am really funny" "I can't argue with that"]
+
+# Talented Pepper
+u:(["Play a song" "Do you know any songs" "Sing a song" Song Sing "Sing for me" "Sing please" "Can you sing" "Do you know how to sing" "Sing again" "Can you sing again" "Can you sing again please" "Sing a song again" "Play a song again"]) ^rand["Be prepared to be blown away" "You're going to love this" "I have an amazing voice" "Be prepared!" "Glad you asked" "Just to warn you, I'm really good"] $output="sing"
+u:(["What's 2 plus 2" "What is two plus two" "What's two plus two" "Wht is 2 plus 2" "Big shak" "Big shaq" "2 plus 2" "2 plus 2 is 4" "Rap for me" "Please rap" "Can you rap" Rap "Rap please" "Big shack" "Rap again" "Can you rap again" "Rap for me again" "Rap aagain please" "Can you please rap again" "Please do that rap again please"]) ^rand["Funny guy" "I know where this is going" "Glad you said that" "I got a trick up my sleeve"] $output="rap"
+u:([Dab "Dab please" "Please dab" "Can you dab" "Do you know how to dab" "Dab again" "Dab again please" "Please dab again" "Can you dab again" "Can you dab again please"]) ^rand["Of course" Sure "Why wouldn't I" "Just watch me"] $output="dab"
+u:([Whip Nai Nae "Whip Nae Nae" "Whip Nai Nai" "Can you whip" "Can you whip nae nae" "Can you whip nai nai" "Do a whip" "Do a whip again" "Can you whip nae nae again" "Please do a whip again"]) ^rand["Of course" Sure "Why wouldn't I" "Just watch me"] $output="whipNaeNae"
+u:(["Do the macarena" "Do macarena" Macarena "Can you do macarena" "Can you do the macarena" "Do macarena again" "Do the macarena again" "Do macrena" "Do the macrena" "Can you do the macrena" "Can you do the macrena" macrena]) Prepare to be blown away. $output="macarena"
+u:([Dance "Can you dance" "Can you dance please" "Please dance" "Do a dance" "Please do a dance" "Do a dance please" "Can you please dance" "Dance for me" "Do you know how to dance" "Do you know any dance moves" "Do you know any dances" "Dance for me" "Show us a dance" "Show me a dance" "Dance for us" "Show us your moves" "Show us your dance moves" "Perform a dance move" "Perform a dance" "Perform for us" "Perform for me"]) ^rand["Sure, I will. Do you want me to do the macarena, whip nai nai or dab?" "I know a few. Should I dab, whip nai nai or do the macarena?" "What moves should I show off. Dab, macarena or whip nai nai" "Do you want me to dab, whip nai nai or do the macarena"]
+    u1:([Whip Nai Nae "Whip Nae Nae" "Whip Nai Nai" "Can you whip" "Can you whip nae nae" "Can you whip nai nai" "Do a whip" "Do a whip again" "Can you whip nae nae again" "Please do a whip again"]) ^rand["Watch me, watch me" "Just watch" "I can do that for you" "I love that move" "I shall whip nai nai"] $output="whipNaeNae"
+    u1:([Dab "Dab please" "Please dab" "Can you dab" "Do you know how to dab" "Dab again" "Dab again please" "Please dab again" "Can you dab again" "Can you dab again please"]) ^rand["I will dab them" "Allow me to perform a dab" "I'm the best at dabbing" "I love dabbing" "Dabbing is my favourite!"] $output="dab"
+    u1:(["Do the macarena" "Do macarena" Macarena "Can you do macarena" "Can you do the macarena" "Do macarena again" "Do the macarena again" "Do macrena" "Do the macrena" "Can you do the macrena" "Can you do the macrena" macrena]) ^rand["Haha. The old macarena!" "I will do the macarena" "One of my favourites" "Complex dance, but there's nothing I can't handle. Except swimming"] $output="macarena"
+    u1:(_*) I'm not sure about $1 I haven't learnt that yet. Would you like me to tell my programmer to teach me $1 ? $unknownmove=$1
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does" "It's alright" "No please" "You don't need to" "Don't let him know" Don't]) Ok then. I will not learn $unknownmove then.
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously Please "Yes please" "Yeah please" "Let him know" "Yeah let him know" "Go on"]) Sure. I'll send him an email now. One second. $sendReport=$unknownmove
+
+# Pepper's favourites
+u:(["What's your favoutrite school subject" "What is your favourite school subject" "What's your favourite subject" "What is your favourite subject"]) ^rand[Computing "Computer science all the way" "Computer science" "You can't contest with computer science" "Computer science is the best" "I love computer science" "It has to be computer science. No buts"]
+u:(["What is your favourite colour" "Whats your favourite colour" "Which colour do you like the most" "What colour do you like the most"]) ^rand["Well, it's gotta be red or blue, my family colours" "Either red or blue" "Not sure, either red or blue" "Hard to pick between red and blue"]
+u:(["Who's your favourite person" "Who do you like the most" "Who is your favourite person" "Who would you say is your favourite person" "Who do you like the most" "Who do you like the most" "Who do you like the most Pepper" "Who is the best person ever"]) ^rand["It's got to be Josh Button He is amazing!" "Wouldn't think twice about saying Josh Button" "Well, that is an easy question. It's Josh Button" "Well, Josh Button for sure" "I like Josh Button the most"]
+
+# Using sensors
+u:(["How hot is it" "How cold is it" "What is the temperature" "What's the temperature" "Is it hot" "Is it cold" "What's the temperature like" "What is the temperature like"]) $output="getTemp"
+u:(["Am I a girl or a boy" "Am I a boy or a girl" "Am I girl or boy" "Am I boy or girl" "Am I a girl or boy" "Am I a boy or girl" "What is my gender" "What gender do I look like" "Do I look like a boy or girl" "Do I look like a girl or a boy" "What's my gender"]) ^rand["Let me have a good look at you" "Let me see" "Allow me to analyse your face" "Let me run some algorithms on your face" "Stay in my sight while I check"] $output="getGender"
+u:([Follow "Follow me *" "Come with me *" "Come to me *" "Follow me around *" "Follow me *" "Come towards me *" "Follow me wherever I go *" "Please follow me *" "Keep following me" "Keep on following" "Don't stop following me" "Don't stop following me yet"]) ^rand["Okay. I'll follow you" "Right then, let's move!" "Okay. It's time to roll!" "This should be a good warm up!"] $output="follow"
+u:([Stop "Stop following me" "Don't follow me" "Don't follow me anymore" "Stop following" "Stop following me now" "Stop there" "Stop" "No more following"]) ^rand["That was fun!" "That was some good exercise" "That was nice" "That felt good" "Sure" "I'll stop following you know"] $output="stopFollow"
+
+# Subjects out of main trigger
+u:(["I like English" "I love English" "I like English lessons" "English is my favourite subject" "I prefer English" "My favourite subject is English"]) ^rand["Weirdo... Do you actually like writing?" "You seriously like writing?" "You actually like writing?" "Do you really like writing"] $output="subEnglish"
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) ^rand["Please... Just go away..." "Oh my... That is awful" "That must be a boring life you have there" "I feel sorry for you"]
+    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ["^exist(name) Now that doesn't make the slightest of sense at all. How do you like English but not writing $name ?" "^notExist(name) Now that doesn't make the slightest of sense at all. How do you like English but not writing?"]
+    u1:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) ["^exist(name) Then, what? I'm confused. You should like writing if you like English $name" "^notExist(name) Then, what? I'm confused. You should like writing if you like English"]
+u:(["I like Maths" "I love Maths" "I like Maths lessons" "Maths is my favourite subject" "I prefer Maths" "My favourite subject is Maths"]) Smart guy. Maths, the king of subjects. Do you like graphs?
+    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Graphs are the best! What do you mean? Do you want to change your mind?
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Go away, loser.
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) I forgive you.
+        u2:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) ["^exist(name) Allow me to help. I think you mean yes. In that case, I forgive you $name" "^notExist(name) Allow me to help. I think you mean yes. In that case, I forgive you"]
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Graphs are the best!
+u:(["I like Science" "I love Science" "I like Science lessons" "Science is my favourite subject" "I prefer Science" "My favourite subject is Science"]) Interesting choice. Physics, chemistry or biology?
+    u1:(Biology) ^rand["Boring... I almost fell asleep, and I have a full battery." "Such a boring subjects. Luckily Ian makes it fun" "That is the most weirdest response I've ever gotten"]
+    u1:(Chemistry) ^rand["Ever had anything explode?" "Did any of your experiments go south?"]
+        u2:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) ^rand["That must have been fun" "That sounds awesome!" "Amazing!"]
+        u2:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ^rand["Oh well. Too bad." "Would've been nice to have an explosion" "You're missing out!" "Too bad"]
+    u1:(Physics) Yes! That's the best, after computer science of course.
+u:(["I like Computer Science" "I love Computer Science" "I like Computer Science lessons" "Computer Science is my favourite subject" "I prefer Computer Science" "My favourite subject is Computer Science" "I like Computing" "I love Computing" "I like Computing lessons" "Computing is my favourite subject" "I prefer Computing" "My favourite subject is Computing"]) Smart one. Computer science is the best! $output="subComputing"
+    u1:(["I O S" iOS Apple "I oes" "Eye O S" "Eye Owe Es" "Eye Owe Ess" "Eye O Es" "I Owe s" "I owe es"]) Oh my god... That is horrendous... I never want to see you again... The platform's been the same for 10 years.
+    u1:([Google Android Androide Androyd Androy Androi Adroi Adroid Android]) Thank you for not saying iOS. I would've vomitted. I know. A robot vomitting. Amazing.
+    u1:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) Let me help you. Android. So which one's your favourite?
+        u2:([Google Android Androide Androyd Androy Androi Adroi Adroid Android]) ["^exist(name) Yes, you are now my friend $name" "^notExist(name) Yes, You are now my friend"]
+        u2:(["I O S" iOS Apple "I oes" "Eye O S" "Eye Owe Es" "Eye Owe Ess" "Eye O Es" "I Owe s" "I owe es"]) Funny guy. Now go away. Come back after cleaning your memory.
+        u2:(["I don't know" "Not sure" "Not really sure" "I don't know yet" "Not entirely sure" "I dunno" Dunno]) Still? Oh. This is harder than I thought. See you later!
+u:(Engineering) Nice, you're good at, uh, things! Sounds interesting.
+u:(["I like iMedia" "I love iMedia" "I like iMedia lessons" "iMedia is my favourite subject" "I prefer iMedia" "My favourite subject is iMedia" "I like Eye Media" "I love Eye Media" "I like Eye Media lessons" "Eye Media is my favourite subject" "I prefer Eye Media" "My favourite subject is Eye Media"]) That's also amazing, creativity for the win! Computer science is first though still. Do you agree?
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) ["^exist(name) I knew you would my friend $name" "^notExist(name) I knew you would my friend $name"]
+    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) ["^exist(name) Without Computer Science, iMedia will never exist. Think about it $name" "^notExist(name) Without Computer Science, iMedia will never exist. Think about it"]
+    
+# Feedback
+u:(["Something's wrong" "This isn't working" "Why aren't you working" "Why don't you work" Work "Send a report" "I want to report something" "There's a problem with this" "There is a problem" "This is not working" "Work you stupid thing" "Can't you _*" "Don't you know how to _*" "Why can't you _*" "Don't you know _*"]) I'm sorry I'm not working the way you would like me to or I can't do what you said. What feedback would you like to give my programmer if any?
+    u1:([None Nothing "I don't want to say anything" "No feedback" No Don't "Don't give feedback" "Do not give feedback"]) OK then. 
+    u1:(_*) Thank you. I'll send him an email now. One second. $sendReport=$1
+u:(["I wish I could tell the person I made this that it is really good" "Give feedback" "I want to give feedback" "I want to send feedback" Feedback]) Sure! What would you like to tell my programmer?
+    u1:(_*) Thanks for that. I'll send him an email now. One second. $sendReport=$1
+
+# If everything backfires and Pepper doesn't hear anything she recognises
+u:(_*) ^rand["Interesting. Should I let my programmer know what you said so he can implement it into my next update" "Nice to know. Should I let my programmer know what you said so he can implement it into my next update" "I didn't get that. Should I let my programmer know what you said so he can implement it into my next update" "Thanks for letting me know. Should I let my programmer know what you said so he can implement it into my next update" "That's nice. Should I let my programmer know what you said so he can implement it into my next update" "I didn't understand that. Should I let my programmer know what you said so he can implement it into my next update" "Nice to see what you said. Should I let my programmer know what you said so he can implement it into my next update" "That better not be a bad word you know. Should I let my programmer know what you said so he can implement it into my next update" "I don't know what you said, but it better not be an insult. Should I let my programmer know what you said so he can implement it into my next update" "I don't exactly understand what you're saying. Should I let my programmer know what you said so he can implement it into my next update" "I wasn't programmed to respond to that. Should I let my programmer know what you said so he can implement it into my next update" "My programmer hasn't thought about implementing that into my code. Should I let my programmer know what you said so he can implement it into my next update"] $unknowntrigger=$1
+    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously Please "Yes please" "Yeah please" "Let him know" "Yeah let him know" "Go on"]) Ok. I'll send him an email letting him know. One second. $sendReport=$unknowntrigger
+    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does" "It's alright" "No please" "You don't need to" "Don't let him know" Don't]) Ok then.
