@@ -17,17 +17,17 @@
    <nature>interactive</nature>
    <permissions/>
   </behaviorContent>
-  <dialogContent topicName="TopicOne" typeVersion="1.0">
-   <topic path="TopicOne/TopicOne_enu.top" language="en_US"/>
+  <dialogContent typeVersion="1.0" topicName="TopicOne">
+   <topic language="en_US" path="TopicOne/TopicOne_enu.top"/>
   </dialogContent>
-  <dialogContent topicName="ExampleDialog" typeVersion="1.0">
-   <topic path="behavior_1/ExampleDialog/ExampleDialog_enu.top" language="en_US"/>
+  <dialogContent typeVersion="1.0" topicName="ExampleDialog">
+   <topic language="en_US" path="behavior_1/ExampleDialog/ExampleDialog_enu.top"/>
   </dialogContent>
-  <dialogContent topicName="Song" typeVersion="1.0">
-   <topic path="Song/Song_enu.top" language="en_US"/>
+  <dialogContent typeVersion="1.0" topicName="Song">
+   <topic language="en_US" path="Song/Song_enu.top"/>
   </dialogContent>
-  <dialogContent topicName="learning" typeVersion="1.0">
-   <topic path="learning/learning_enu.top" language="en_US"/>
+  <dialogContent typeVersion="1.0" topicName="learning">
+   <topic language="en_US" path="learning/learning_enu.top"/>
   </dialogContent>
  </contents>
 </package>

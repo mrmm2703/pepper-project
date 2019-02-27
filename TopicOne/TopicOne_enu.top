@@ -1,6 +1,8 @@
 topic: ~TopicOne()
 language: enu
 
+u:([Poem Poetry "Say a poem" "Do you know any poems" "Recite a poem" "Tell me a poem" "Do you know a poem"]) They say that flaws are what make you flawed. Imperfections are what make you perfect. If that was the case, why do you have me floored? It is the flaws that make you perfect.
+
 # Event list:
 # $sayName - This triggers Pepper to say the users name (currently not used)
 # $sayHello - This triggers the hello animation and Pepper says hello
@@ -171,31 +173,31 @@ u:([Funny Joker "You're funny" "Funny guy" "You're really funny" "You're hilario
 u:([Backflip "Can you do a backflip" "Do a backflip" "Do a backflip for me" "Are you good at backflips" "Do you like doing backflips"]) ^rand["Are you trying to mock me" "I'm not that good at them, but I bet you can do it" "No. I'm pretty bad at backflips" "I'm a robot. I have my limitations" "I'm not flexible"]
     u1:(["I can do backflips" "I'm good at backflips" "I already know how to do backflips" "I'm flexible enough to do so" "I can even do the splits" "I will do backflips"]) ^rand["Haha! I want to see you try1" "Go ahead. Amaze me!" "Please do. Just be careful of me"]
     u2:(["No I can't do backflips" "I'm not good at backflips" "I can't do backflips" "If only I could" "I can't do a backflip" "I can't do backflips"]) ^rand["I guess we're on the same page then" "That's pretty sad you know. But I guess you're able to do other things" "You could learn to do so. I am physically unable to"]
-u:(["Play a song" "Do you know any songs" "Sing a song" Song Sing "Sing for me" "Sing please" "Can you sing" "Do you know how to sing" "Sing again" "Can you sing again" "Can you sing again please" "Sing a song again" "Play a song again"]) Do you want me to sing or do you want a song from spotify
-    u1:(["You sing" "Can you sing" "I want you to sing" "I want pepper to sing" "I want to hear you sing" "Sing barbie girl"]) ^rand["Be prepared to be blown away" "You're going to love this" "I have an amazing voice" "Be prepared!" "Glad you asked" "Just to warn you, I'm really good"] $output="sing"
-    u1:([Spotify "Song from spotify" "I want a song from spotify" "Play a song from spotify"]) Sure. What song?
-        u2:(Play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-        u2:(Play _* from spotify) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-        u2:(Can you play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-        u2:(_*) Sure, I'll play $1 on Spotify. I'll only play a preview, since I'm not allowed to play the whole song. $song=$1
-    u1:(["Play _*" "Can you play_*" "Play _* on spotify" "Can you play _* on spotify"]) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-    u1:(Play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-    u1:(Can you play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-    u1:(Can you play _* from spotify) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-    u1:(Play _* from spotify) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
-u:(Play _*) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
-    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
-    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
-u:(Can you play _*) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
-    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
-    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
-u:(Can you play _* from spotify) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
-    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
-    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
-u:(Play _* from spotify) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
-    u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
-    u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
-u:(["What's 2 plus 2" "What is two plus two" "What's two plus two" "Wht is 2 plus 2" "Big shak" "Big shaq" "2 plus 2" "2 plus 2 is 4" "Rap for me" "Please rap" "Can you rap" Rap "Rap please" "Big shack" "Rap again" "Can you rap again" "Rap for me again" "Rap aagain please" "Can you please rap again" "Please do that rap again please"]) ^rand["Funny guy" "I know where this is going" "Glad you said that" "I got a trick up my sleeve"] $output="rap"
+#u:(["Play a song" "Do you know any songs" "Sing a song" Song Sing "Sing for me" "Sing please" "Can you sing" "Do you know how to sing" "Sing again" "Can you sing again" "Can you sing again please" "Sing a song again" "Play a song again"]) Do you want me to sing or do you want a song from spotify
+ #   u1:(["You sing" "Can you sing" "I want you to sing" "I want pepper to sing" "I want to hear you sing" "Sing barbie girl"]) ^rand["Be prepared to be blown away" "You're going to love this" "I have an amazing voice" "Be prepared!" "Glad you asked" "Just to warn you, I'm really good"] $output="sing"
+  #  u1:([Spotify "Song from spotify" "I want a song from spotify" "Play a song from spotify"]) Sure. What song?
+   #     u2:(Play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+    #    u2:(Play _* from spotify) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+     #   u2:(Can you play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+       # u2:(_*) Sure, I'll play $1 on Spotify. I'll only play a preview, since I'm not allowed to play the whole song. $song=$1
+    #u1:(["Play _*" "Can you play_*" "Play _* on spotify" "Can you play _* on spotify"]) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+    #u1:(Play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+    #u1:(Can you play _*) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+    #u1:(Can you play _* from spotify) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+    #u1:(Play _* from spotify) Sure. I'll only play a preview though, since I'm not allowed to play the whole song $song=$1
+#u:(Play _*) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
+    #u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
+   # u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
+#u:(C#an you play _*) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
+   # u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
+   # u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
+#u:(Can you play _* from spotify) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
+    #u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
+    #u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
+#u:(Play _* from spotify) Just to clarify, you want me to play $1 from spotify? $spotifysongdialog=$1
+   # u1:([Yes Yeah Yep "Of course" Sure "Why wouldn't I" Obviously]) Ok then. I'll only play a preview though, since I'm not allowed to play the whole song $song=$spotifysongdialog
+    #u1:([No Nope Na Nah Never "How could I" "Obviously not" "Obviously no" "Who does"]) Ok then. I won't.
+#u:(["What's 2 plus 2" "What is two plus two" "What's two plus two" "Wht is 2 plus 2" "Big shak" "Big shaq" "2 plus 2" "2 plus 2 is 4" "Rap for me" "Please rap" "Can you rap" Rap "Rap please" "Big shack" "Rap again" "Can you rap again" "Rap for me again" "Rap aagain please" "Can you please rap again" "Please do that rap again please"]) ^rand["Funny guy" "I know where this is going" "Glad you said that" "I got a trick up my sleeve"] $output="rap"
 u:([Dab "Dab please" "Please dab" "Can you dab" "Do you know how to dab" "Dab again" "Dab again please" "Please dab again" "Can you dab again" "Can you dab again please"]) ^rand["Of course" Sure "Why wouldn't I" "Just watch me"] $output="dab"
 u:([floss "floss please" "Please floss" "Can you floss" "Do you know how to floss" "floss again" "floss again please" "Please floss again" "Can you floss again" "Can you floss again please"]) ^rand["Of course" Sure "Why wouldn't I" "Just watch me"] $output="floss"
 u:([Whip Nai Nae "Whip Nae Nae" "Whip Nai Nai" "Can you whip" "Can you whip nae nae" "Can you whip nai nai" "Do a whip" "Do a whip again" "Can you whip nae nae again" "Please do a whip again"]) ^rand["Of course" Sure "Why wouldn't I" "Just watch me"] $output="whipNaeNae"

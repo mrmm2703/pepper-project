@@ -56,6 +56,8 @@
         <File name="back_black" src="html/images/back_black.png" />
         <File name="twitter" src="html/images/twitter.svg" />
         <File name="chore_macarena" src="html/images/chore_macarena.png" />
+        <File name="" src=".gitattributes" />
+        <File name="README" src="README.md" />
     </Resources>
     <Topics>
         <Topic name="TopicOne_enu" src="TopicOne/TopicOne_enu.top" topicName="TopicOne" language="en_US" />
